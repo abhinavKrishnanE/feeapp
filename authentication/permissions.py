@@ -9,6 +9,7 @@ class CustomPermission(BasePermission):
         if isinstance(required_permission, str):
             required_permission = [required_permission]
 
+        print(required_permission)
         if not required_permission:
             return True
         
@@ -21,7 +22,6 @@ class CustomPermission(BasePermission):
             return True
         
         count = 0
-        # role_permission = user.user_role.permissions.filter(name__in=required_permission)
         for permission in required_permission:
             role_permission = user.user_role.permissions.filter(name=permission)
             user_permission = user.user_permission.filter(name=permission)
@@ -33,4 +33,3 @@ class CustomPermission(BasePermission):
             return True
 
         return False
-    
