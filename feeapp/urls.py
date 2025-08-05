@@ -23,7 +23,7 @@ urlpatterns = [
     path("feestructure/", FeeStructureListView.as_view()),
     path("feestructure/create/", FeeStructureCreateView.as_view()),
     path("feestructure/update/<int:pk>/", FeeStructureUpdateView.as_view()),
-    path("feestructure/delete/<int:pk>", FeeStructureDeleteView.as_view()),
+    path("feestructure/delete/<int:pk>/", FeeStructureDeleteView.as_view()),
 
     path("feecomponent/", FeeComponentListView.as_view()),
     path("feecomponent/create/", FeeComponentCreateView.as_view()),
@@ -40,10 +40,10 @@ urlpatterns = [
     path("discount/update/<int:pk>/", DiscountUpdateView.as_view()),
     path("discount/delete/<int:pk>/", DiscountDeleteView.as_view()),
     
-    path("installmentdetials/", InstallmentDetailsListView.as_view()),
-    path("installmentdetials/create/", InstallmentDetialsCreateView.as_view()),
-    path("installmentdetials/update/<int:pk>/", InstallmentDetailsUpdateView.as_view()),
-    path("installmentdetials/delete/<int:pk>/", InstallmentDetailsDeleteView.as_view()),
+    path("installmentdetails/", InstallmentDetailsListView.as_view()),
+    path("installmentdetails/create/", InstallmentDetialsCreateView.as_view()),
+    path("installmentdetiais/update/<int:pk>/", InstallmentDetailsUpdateView.as_view()),
+    path("installmentdetails/delete/<int:pk>/", InstallmentDetailsDeleteView.as_view()),
 
     path("payment/", PaymentListView.as_view()),
     path("payment/create/", PaymentCreateView.as_view()),

@@ -1,4 +1,5 @@
 from rest_framework.generics import CreateAPIView, ListAPIView, UpdateAPIView, DestroyAPIView
+import requests
 
 from .models import FeeStructure, FeeComponent, Discount, InstallmentDetails, Payment, Notification, FeeNotification
 from .serializer import FeestructureSerializer, FeeComponentSerializer, InstallmentTypeSerializer, StudentBatchFeeDetails
@@ -12,6 +13,7 @@ class FeeStructureListView(ListAPIView):
     serializer_class = FeestructureSerializer
     permission_classes = [CustomPermission]
     required_permission = []
+
 
 class FeeStructureCreateView(CreateAPIView):
     queryset = FeeStructure.objects.all()
@@ -256,3 +258,5 @@ class StudentBatchFeeDetialsDeleteView(DestroyAPIView):
     serializer_class = StudentBatchFeeDetailsSerializer
     permission_classes = [CustomPermission]
     required_permission = []
+
+

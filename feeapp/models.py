@@ -66,6 +66,3 @@ class Notification(models.Model):
 class FeeNotification(models.Model):
     student_batch_fee_details = models.OneToOneField(StudentBatchFeeDetails, on_delete=models.CASCADE)
     notify_before_days = models.IntegerField()
-    
-
-    

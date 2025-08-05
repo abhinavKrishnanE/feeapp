@@ -36,4 +36,4 @@ class Student(models.Model):
 class StudentBatch(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
     batch = models.ForeignKey(Batch, on_delete=models.CASCADE)
-    joined_date = models.DateField(default=timezone.now())
+    joined_date = models.DateField(default=timezone.now)

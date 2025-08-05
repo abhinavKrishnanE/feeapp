@@ -1,4 +1,4 @@
-from rest_framework.generics import CreateAPIView, UpdateAPIView, ListAPIView, DestroyAPIView
+from rest_framework.generics import CreateAPIView, UpdateAPIView, ListAPIView, DestroyAPIView, RetrieveAPIView
 
 from .models import Institution, Batch, Student
 from authentication.permissions import CustomPermission
@@ -89,6 +89,6 @@ class DeleteStudentView(DestroyAPIView):
     required_permission = []
 
 
-
-
-
+class StudentDetailsAPIView(RetrieveAPIView):
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
