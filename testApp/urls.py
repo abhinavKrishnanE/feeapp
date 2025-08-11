@@ -2,7 +2,8 @@ from django.urls import path
 
 from .views import CreateInstitutionView, ListIntitutionView, UpdateInstitutionView, DeleteInstitutionView
 from .views import CreateBatchView, ListBatchView, UpdateBatchView, DeleteBatchView
-from .views import ListStudentView, CreateStudentView, UpdateStudentView, DeleteStudentView, StudentDetailsAPIView
+from .views import ListStudentView, CreateStudentView, UpdateStudentView, DeleteStudentView
+from .views import StudentDetailsAPI, StudentBatchDetailsAPI
 
 
 urlpatterns = [
@@ -21,5 +22,6 @@ urlpatterns = [
     path("student/update/<int:pk>/", UpdateStudentView.as_view()),
     path("student/delete/<int:pk>/", DeleteStudentView.as_view()),
 
-    path("studentdetailsapi/<int:pk>/", StudentDetailsAPIView.as_view()),
+    path("studentdetailsapi/", StudentDetailsAPI.as_view()),
+    path("studentbatchdetailsapi/", StudentBatchDetailsAPI.as_view()),
 ]

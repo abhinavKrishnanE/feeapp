@@ -1,8 +1,11 @@
 from rest_framework.generics import CreateAPIView, UpdateAPIView, ListAPIView, DestroyAPIView, RetrieveAPIView
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
 
-from .models import Institution, Batch, Student
+from .models import Institution, Batch, Student, StudentBatch
 from authentication.permissions import CustomPermission
-from .serializer import InstitutionSerializer, BatchSerializer, StudentSerializer
+from .serializer import InstitutionSerializer, BatchSerializer, StudentSerializer, StudentBatchSerializer
 
 
 class CreateInstitutionView(CreateAPIView):
@@ -89,6 +92,17 @@ class DeleteStudentView(DestroyAPIView):
     required_permission = []
 
 
-class StudentDetailsAPIView(RetrieveAPIView):
-    queryset = Student.objects.all()
-    serializer_class = StudentSerializer
+class StudentDetailsAPI(APIView):
+    def post(self, request, *args, **kwargs):
+        student_ids = request.data.get('student_ids', [])
+
+        students = Student.objects.filter(id__in=student_ids)
+        serializer = StudentSerializer(students, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    
+
+class StudentBatchDetailsAPI(APIView):
+    def post(self, request, *args, **kwargs):
+        studet_batch_details  = StudentBatch.objects.all()
+        serializer = StudentBatchSerializer(studet_batch_details, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)

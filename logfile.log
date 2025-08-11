@@ -1,0 +1,5 @@
+System check identified some issues:
+
+WARNINGS:
+authentication.CustomUser.user_permission: (fields.W340) null has no effect on ManyToManyField.
+authentication.UserRole.permissions: (fields.W340) null has no effect on ManyToManyField.

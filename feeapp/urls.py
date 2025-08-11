@@ -24,7 +24,7 @@ urlpatterns = [
     path("feestructure/create/", FeeStructureCreateView.as_view()),
     path("feestructure/update/<int:pk>/", FeeStructureUpdateView.as_view()),
     path("feestructure/delete/<int:pk>/", FeeStructureDeleteView.as_view()),
-
+    
     path("feecomponent/", FeeComponentListView.as_view()),
     path("feecomponent/create/", FeeComponentCreateView.as_view()),
     path("feecomponent/update/<int:pk>/", FeeComponentUpdateView.as_view()),
@@ -64,4 +64,5 @@ urlpatterns = [
     path("studentbatchfeedetails/create/", StudentBatchFeeDetailsCreateView.as_view()),
     path("studentbatchfeedetails/update/<int:pk>/", StudentBatchFeeDetailsUpdateView.as_view()),
     path("studentbatchfeedetails/delete/<int:pk>/", StudentBatchFeeDetialsDeleteView.as_view()),
+
 ]
